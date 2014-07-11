@@ -52,9 +52,6 @@ class Api
         // twitter params, because of strange behavior in twitter api they are set separate
         $this->params = array();
 
-        // the passed query param
-        $this->query = rawurlencode($_GET['search'] );
-        
         // assign OAuth class
         $this->auth = new Auth($consumerKey, $accessToken, $consumerSecret, $accessTokenSecret);
     }
@@ -69,6 +66,9 @@ class Api
     {
         $curl_request = curl_init();
 
+        // prep the query
+        $query = rawurlencode($query);
+
         if (!empty($this->params)) {
             foreach ($this->params as $key => $value) {
                 if (empty($str)) {
@@ -78,6 +78,9 @@ class Api
                 }
             }
         }
+
+        $this->auth->setQuery($query);
+        $this->auth->setUrl($this->url);
 
         curl_setopt($curl_request, CURLOPT_HTTPHEADER, $this->auth->oauthHeader());
         curl_setopt($curl_request, CURLOPT_HEADER, false);

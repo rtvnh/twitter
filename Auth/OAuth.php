@@ -6,19 +6,33 @@ class OAuth
 {
 
     private $consumerKey;
-    
+
     private $accessToken;
-    
+
     private $consumerSecret;
-    
+
     private $accessTokenSecret;
-    
+
+    private $query;
+
+    private $url;
+
     public function __construct($consumerKey, $accessToken, $consumerSecret, $accessTokenSecret)
     {
         $this->consumerKey = $consumerKey;
         $this->accessToken = $accessToken;
         $this->consumerSecret = $consumerSecret;
         $this->accessTokenSecret = $accessTokenSecret;
+    }
+
+    public function setQuery($query)
+    {
+        $this->query = $query;
+    }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
     }
 
     /**
@@ -74,7 +88,7 @@ class OAuth
      * Create the header for sending in the cUrl
      * @return array
      */
-    private function oauthHeader()
+    public function oauthHeader()
     {
         $oauth_header = 'count="'.$this->count.'", ';
 
