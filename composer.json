@@ -4,6 +4,6 @@
     "type":"library",
     "description":"Twitter API",
     "autoload": {
-        "psr-4": {"rtvnh\\": "/"}
+        "psr-4": {"Rtvnh\\": "/"}
     }
 }
