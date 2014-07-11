@@ -81,6 +81,7 @@ class Api
 
         $this->auth->setQuery($query);
         $this->auth->setUrl($this->url);
+        $this->auth->setCount($max);
 
         curl_setopt($curl_request, CURLOPT_HTTPHEADER, $this->auth->oauthHeader());
         curl_setopt($curl_request, CURLOPT_HEADER, false);
@@ -93,6 +94,10 @@ class Api
         curl_close($curl_request);
 
         $tweets = json_decode($json);
+
+        if (!empty($tweets->errors)) {
+            echo $tweets->errors[0]->message;
+        }
 
         // json encoded tweets
         $tweets = $this->getTweets($tweets);
@@ -190,26 +195,5 @@ class Api
         }
 
         return json_encode($storage);
-    }
-
-    /**
-     * @deprecated Not necessary anymore to fetch screenname from this
-     * @param int $idUser
-     * @param string $screenName
-     * @return array
-     */
-    private function getTwitterUser($idUser, $screenName = '')
-    {
-        $connection = Rtvnh_Library_Twitter_Connection::getInstance()->getConnection();
-
-        // set parameters
-        $parameters = array(
-            'user_id'=> $idUser
-        );
-
-        // fetch tweets
-        $user = $connection->get('users/show', $parameters);
-
-        return $user;
     }
 }

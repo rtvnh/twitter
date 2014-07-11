@@ -17,6 +17,8 @@ class OAuth
 
     private $url;
 
+    private $count = 20;
+
     public function __construct($consumerKey, $accessToken, $consumerSecret, $accessTokenSecret)
     {
         $this->consumerKey = $consumerKey;
@@ -33,6 +35,11 @@ class OAuth
     public function setUrl($url)
     {
         $this->url = $url;
+    }
+
+    public function setCount($count)
+    {
+        $this->count = $count;
     }
 
     /**
