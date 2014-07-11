@@ -1,9 +1,9 @@
 {
-    "name":"rtvnh/twitter",
+    "name":"Rtvnh/Twitter",
     "version":"0.0.1",
     "type":"library",
     "description":"Twitter API",
     "autoload": {
-        "psr-4": {"Rtvnh\\": "/"}
+        "psr-4": {"Rtvnh\\": "/Rtvnh"}
     }
 }
