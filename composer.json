@@ -6,9 +6,6 @@
     "autoload": {
         "psr-0": {
             "Rtvnh": "src/"
-        },
-        "classmap": [
-            "./Module.php"
-        ]
+        }
     }
 }
