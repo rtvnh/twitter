@@ -4,6 +4,11 @@
     "type":"library",
     "description":"Twitter API",
     "autoload": {
-        "psr-4": {"Rtvnh\\": "src"}
+        "psr-0": {
+            "Rtvnh": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
     }
 }
