@@ -3,14 +3,8 @@
     "type":"library",
     "description":"Twitter API",
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "Rtvnh\\Twitter\\": "src/"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.2-dev",
-            "dev-develop": "2.3-dev"
         }
     }
 }
