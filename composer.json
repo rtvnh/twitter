@@ -4,7 +4,7 @@
     "description":"Twitter API",
     "autoload": {
         "psr-0": {
-            "Rtvnh\\Twitter\\": "src/"
+            "Rtvnh\\": "src/"
         }
     }
 }
